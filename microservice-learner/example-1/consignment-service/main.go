@@ -5,7 +5,8 @@ import (
 	"net"
 
 	// Import the generated protobuf code
-	pb "./proto/consignment/"
+	pb "example-1/consignment-service/proto/consignment"
+
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
