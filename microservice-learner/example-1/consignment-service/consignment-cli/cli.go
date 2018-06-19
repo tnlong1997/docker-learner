@@ -7,16 +7,12 @@ import (
 	"os"
 
 	pb "example-1/consignment-service/proto/consignment"
-
-	"golang.org/x/net/context"
-	"google.golang.org/grpc"
-
-	"github.com/micro/go-micro/cmd"
 	microclient "github.com/micro/go-micro/client"
+	"github.com/micro/go-micro/cmd"
+	"golang.org/x/net/context"
 )
 
 const (
-	address         = "localhost:50051"
 	defaultFilename = "consignment.json"
 )
 
@@ -35,14 +31,6 @@ func main() {
 
 	// Create new greeter client
 	client := pb.NewShippingServiceClient("go.micro.srv.consignment", microclient.DefaultClient)
-
-	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
-	if err != nil {
-		log.Fatalf("Did not connect: %v", err)
-	}
-	defer conn.Close()
-	client := pb.NewShippingServiceClient(conn)
 
 	// Contact the server and print out its response.
 	file := defaultFilename
