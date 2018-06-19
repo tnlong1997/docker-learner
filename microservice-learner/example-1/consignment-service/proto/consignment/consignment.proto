@@ -3,7 +3,8 @@ syntax = "proto3";
 package go.micro.srv.consignment;
 
 service ShippingService {
-  rpc CreateConsignment(Consignment) returns (Response) {}
+	rpc CreateConsignment(Consignment) returns (Response) {}
+	rpc GetConsignments(GetRequest) returns (Response) {}
 }
 
 message Consignment {
@@ -24,4 +25,6 @@ message Container {
 message Response {
   bool created = 1;
   Consignment consignment = 2;
+
+	repeated Consignment consignments = 3
 }
