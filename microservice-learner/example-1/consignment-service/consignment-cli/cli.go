@@ -10,6 +10,9 @@ import (
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+
+	"github.com/micro/go-micro/cmd"
+	microclient "github.com/micro/go-micro/client"
 )
 
 const (
@@ -28,6 +31,11 @@ func parseFile(file string) (*pb.Consignment, error) {
 }
 
 func main() {
+	cmd.Init()
+
+	// Create new greeter client
+	client := pb.NewShippingServiceClient("go.micro.srv.consignment", microclient.DefaultClient)
+
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
