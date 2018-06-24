@@ -39,6 +39,7 @@ func main() {
 	}
 
 	consignment, err := parseFile(file)
+	log.Printf("consignment: %v", consignment)
 
 	if err != nil {
 		log.Fatalf("Could not parse file: %v", err)
