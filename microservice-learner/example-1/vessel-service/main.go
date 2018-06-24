@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	pb "example-1/vessel-service/proto/vessel"
+	pb "github.com/tnlong1997/microservce-learner/microservice-learner/example-1/vessel-service/proto/vessel"
 	"github.com/micro/go-micro"
 )
 
